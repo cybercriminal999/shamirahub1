@@ -26,6 +26,14 @@ const SignInPage: React.FC<SignInPageProps> = ({ onLoginSuccess, onNavigate }) =
     const user = users[trimmedUsername.toLowerCase()];
 
     if (user && user.password === password) {
+      if (user.status === 'banned') {
+        setError('Your account has been banned.');
+        return;
+      }
+      if (user.status === 'suspended') {
+        setError('Your account has been suspended. Please contact support.');
+        return;
+      }
       onLoginSuccess(user.username);
     } else {
       setError('Invalid username or password.');

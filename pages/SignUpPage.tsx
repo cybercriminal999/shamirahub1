@@ -46,11 +46,19 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ onSignUpSuccess, onNavigate }) 
       return;
     }
 
+    // Generate UID
+    const userCounter = JSON.parse(localStorage.getItem('shamiraHubUserCounter') || '0');
+    const newUID = userCounter + 1;
+    localStorage.setItem('shamiraHubUserCounter', JSON.stringify(newUID));
+
     // In a real app, you would hash the password before storing it.
     users[normalizedUsername] = { 
       username: trimmedUsername,
       password: password,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
+      uid: newUID,
+      balance: 0.00,
+      status: 'active'
     };
     localStorage.setItem('shamiraHubUsers', JSON.stringify(users));
 
