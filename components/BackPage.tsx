@@ -3,9 +3,11 @@ import { ArrowLeftIcon, SparklesIcon } from './Icons';
 
 interface BackPageProps {
   onFlip: () => void;
+  text: string;
+  onTextChange: (newText: string) => void;
 }
 
-const BackPage: React.FC<BackPageProps> = ({ onFlip }) => {
+const BackPage: React.FC<BackPageProps> = ({ onFlip, text, onTextChange }) => {
   return (
     <div className="w-full h-full bg-gradient-to-br from-green-500 to-teal-700 rounded-2xl shadow-2xl p-8 flex flex-col justify-between items-center text-center">
       <div className="flex items-center gap-4 text-teal-100">
@@ -15,10 +17,14 @@ const BackPage: React.FC<BackPageProps> = ({ onFlip }) => {
         </h1>
       </div>
       
-      <div className="space-y-4">
-        <p className="text-lg text-teal-200 max-w-md">
-          Welcome to the other side! This demonstrates a simple yet elegant transition effect using pure CSS and React state management.
-        </p>
+      <div className="w-full flex-grow my-6 flex">
+        <textarea
+          value={text}
+          onChange={(e) => onTextChange(e.target.value)}
+          placeholder="And something for the back side..."
+          className="w-full h-full bg-teal-900/50 rounded-xl p-4 text-lg text-teal-100 placeholder-teal-300 focus:outline-none focus:ring-2 focus:ring-teal-400 resize-none"
+          aria-label="Back side text input"
+        />
       </div>
 
       <button

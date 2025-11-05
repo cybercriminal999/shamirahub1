@@ -3,9 +3,11 @@ import { ArrowRightIcon, CodeBracketIcon } from './Icons';
 
 interface FrontPageProps {
   onFlip: () => void;
+  text: string;
+  onTextChange: (newText: string) => void;
 }
 
-const FrontPage: React.FC<FrontPageProps> = ({ onFlip }) => {
+const FrontPage: React.FC<FrontPageProps> = ({ onFlip, text, onTextChange }) => {
   return (
     <div className="w-full h-full bg-gradient-to-tr from-blue-500 to-indigo-700 rounded-2xl shadow-2xl p-8 flex flex-col justify-between items-center text-center">
       <div className="flex items-center gap-4 text-indigo-100">
@@ -15,10 +17,14 @@ const FrontPage: React.FC<FrontPageProps> = ({ onFlip }) => {
         </h1>
       </div>
 
-      <div className="space-y-4">
-        <p className="text-lg text-indigo-200 max-w-md">
-          This is the initial view of our interactive page. Click the button below to see what's on the other side.
-        </p>
+      <div className="w-full flex-grow my-6 flex">
+         <textarea
+          value={text}
+          onChange={(e) => onTextChange(e.target.value)}
+          placeholder="Type something on the front..."
+          className="w-full h-full bg-indigo-900/50 rounded-xl p-4 text-lg text-indigo-100 placeholder-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-none"
+          aria-label="Front side text input"
+        />
       </div>
       
       <button
