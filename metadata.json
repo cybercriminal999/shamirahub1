@@ -1,5 +1,5 @@
 {
-  "name": "shamirahub",
-  "description": "",
+  "name": "Flip Card App",
+  "description": "A simple two-sided page application that demonstrates a flipping card animation effect using React and Tailwind CSS.",
   "requestFramePermissions": []
 }
