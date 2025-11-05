@@ -1,27 +1,27 @@
 import React from 'react';
 import { PaperAirplaneIcon, UserCircleIcon } from '../components/Icons';
 
-const founders = [
-    { name: 'cyber', role: 'Founder' },
+const leadership = [
+    { name: 'cyber', role: 'Head Staff' },
     { name: 'caveman', role: 'Founder' },
+    { name: 'rexxaroonie', role: 'Head Staff' },
 ];
 
 const staff = [
-    { name: 'rexxaroonie', role: 'Staff' },
     { name: 'rodent', role: 'Staff' },
     { name: 'vxlvic', role: 'Staff' },
     { name: 'sox', role: 'Staff' },
 ];
 
-const StaffCard: React.FC<{ name: string, role: string, isFounder?: boolean }> = ({ name, role, isFounder = false }) => (
+const StaffCard: React.FC<{ name: string, role: string, isLeadership?: boolean }> = ({ name, role, isLeadership = false }) => (
     <div className={`
         bg-gray-900/40 border border-gray-800 rounded-2xl text-center
         transition-all duration-300 ease-in-out hover:border-lime-400/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-lime-500/10
-        ${isFounder ? 'p-8 md:p-10' : 'p-6'}
+        ${isLeadership ? 'p-8 md:p-10' : 'p-6'}
     `}>
-        <UserCircleIcon className={`mx-auto text-lime-400 ${isFounder ? 'w-20 h-20 mb-5' : 'w-16 h-16 mb-4'}`} />
-        <h3 className={`font-bold text-white ${isFounder ? 'text-2xl' : 'text-xl'}`}>{name}</h3>
-        <p className={`font-medium ${isFounder ? 'text-lime-400' : 'text-gray-400'}`}>{role}</p>
+        <UserCircleIcon className={`mx-auto text-lime-400 ${isLeadership ? 'w-20 h-20 mb-5' : 'w-16 h-16 mb-4'}`} />
+        <h3 className={`font-bold text-white ${isLeadership ? 'text-2xl' : 'text-xl'}`}>{name}</h3>
+        <p className={`font-medium ${isLeadership ? 'text-lime-400' : 'text-gray-400'}`}>{role}</p>
     </div>
 );
 
@@ -36,12 +36,12 @@ const StaffPage: React.FC = () => {
                         <p className="text-gray-400 mt-3 max-w-2xl mx-auto">The dedicated individuals behind ShamiraHub.</p>
                     </div>
 
-                    {/* Founders Section */}
+                    {/* Leadership Section */}
                     <div className="mb-16">
                         <h2 className="text-2xl font-semibold text-center text-white mb-8">Leadership</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-                            {founders.map(member => (
-                                <StaffCard key={member.name} name={member.name} role={member.role} isFounder />
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                            {leadership.map(member => (
+                                <StaffCard key={member.name} name={member.name} role={member.role} isLeadership />
                             ))}
                         </div>
                     </div>
@@ -49,7 +49,7 @@ const StaffPage: React.FC = () => {
                     {/* Staff Section */}
                     <div>
                         <h2 className="text-2xl font-semibold text-center text-white mb-8">Staff Members</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                             {staff.map(member => (
                                 <StaffCard key={member.name} name={member.name} role={member.role} />
                             ))}
