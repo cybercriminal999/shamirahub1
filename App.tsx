@@ -131,23 +131,26 @@ const App: React.FC = () => {
   const [currentUser, setCurrentUser] = useState<UserData | null>(null);
 
   useEffect(() => {
-    // Check local storage for a logged-in user when the app loads
     try {
       const loggedInUsername = localStorage.getItem('currentUser');
       if (loggedInUsername) {
         const usersRaw = localStorage.getItem('shamiraHubUsers');
         const users = usersRaw ? JSON.parse(usersRaw) : {};
         const userData = users[loggedInUsername.toLowerCase()];
-        if (userData) {
-          setCurrentUser(userData);
+        
+        // FIX: Validate the user data object to ensure it has the necessary properties.
+        // This prevents crashes if data from an older version of the app is in localStorage.
+        if (userData && typeof userData.username === 'string' && typeof userData.balance === 'number' && typeof userData.uid === 'number') {
+            setCurrentUser(userData);
         } else {
-          // Data inconsistency: currentUser exists but user data doesn't. Clean up.
-          localStorage.removeItem('currentUser');
+            // If data is invalid or malformed, log the user out to prevent a crash.
+            console.warn('Invalid or outdated user data found in localStorage. Clearing session.');
+            localStorage.removeItem('currentUser');
         }
       }
     } catch (error) {
       console.error("Error loading user data from localStorage:", error);
-      // Clear potentially corrupted data to prevent future crashes on refresh.
+      // Clear potentially corrupted data
       localStorage.removeItem('currentUser');
       localStorage.removeItem('shamiraHubUsers');
     }
