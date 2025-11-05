@@ -132,13 +132,24 @@ const App: React.FC = () => {
 
   useEffect(() => {
     // Check local storage for a logged-in user when the app loads
-    const loggedInUsername = localStorage.getItem('currentUser');
-    if (loggedInUsername) {
-      const users = JSON.parse(localStorage.getItem('shamiraHubUsers') || '{}');
-      const userData = users[loggedInUsername.toLowerCase()];
-      if (userData) {
-        setCurrentUser(userData);
+    try {
+      const loggedInUsername = localStorage.getItem('currentUser');
+      if (loggedInUsername) {
+        const usersRaw = localStorage.getItem('shamiraHubUsers');
+        const users = usersRaw ? JSON.parse(usersRaw) : {};
+        const userData = users[loggedInUsername.toLowerCase()];
+        if (userData) {
+          setCurrentUser(userData);
+        } else {
+          // Data inconsistency: currentUser exists but user data doesn't. Clean up.
+          localStorage.removeItem('currentUser');
+        }
       }
+    } catch (error) {
+      console.error("Error loading user data from localStorage:", error);
+      // Clear potentially corrupted data to prevent future crashes on refresh.
+      localStorage.removeItem('currentUser');
+      localStorage.removeItem('shamiraHubUsers');
     }
   }, []);
 
