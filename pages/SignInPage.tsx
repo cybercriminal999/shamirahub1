@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UserIcon, KeyIcon } from '../components/Icons';
+import { UserIcon, KeyIcon, EyeIcon, EyeSlashIcon } from '../components/Icons';
 
 interface SignInPageProps {
   onLoginSuccess: (username: string) => void;
@@ -9,6 +9,7 @@ interface SignInPageProps {
 const SignInPage: React.FC<SignInPageProps> = ({ onLoginSuccess, onNavigate }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [error, setError] = useState('');
 
   const handleSignInSubmit = (e: React.FormEvent) => {
@@ -26,14 +27,6 @@ const SignInPage: React.FC<SignInPageProps> = ({ onLoginSuccess, onNavigate }) =
     const user = users[trimmedUsername.toLowerCase()];
 
     if (user && user.password === password) {
-      if (user.status === 'banned') {
-        setError('Your account has been banned.');
-        return;
-      }
-      if (user.status === 'suspended') {
-        setError('Your account has been suspended. Please contact support.');
-        return;
-      }
       onLoginSuccess(user.username);
     } else {
       setError('Invalid username or password.');
@@ -73,15 +66,29 @@ const SignInPage: React.FC<SignInPageProps> = ({ onLoginSuccess, onNavigate }) =
                   <KeyIcon className="w-5 h-5 text-gray-400" />
                 </div>
                 <input
-                  type="password"
+                  type={isPasswordVisible ? 'text' : 'password'}
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="bg-gray-800 border border-gray-700 text-white text-sm rounded-lg focus:ring-lime-500 focus:border-lime-500 block w-full p-2.5 pl-10"
+                  className="bg-gray-800 border border-gray-700 text-white text-sm rounded-lg focus:ring-lime-500 focus:border-lime-500 block w-full p-2.5 pl-10 pr-10"
                   placeholder="••••••••"
                   required
                   aria-label="Password"
                 />
+                 <button
+                    type="button"
+                    className="absolute inset-y-0 right-0 top-7 flex items-center pr-3"
+                    onMouseDown={() => setIsPasswordVisible(true)}
+                    onMouseUp={() => setIsPasswordVisible(false)}
+                    onMouseLeave={() => setIsPasswordVisible(false)}
+                    aria-label={isPasswordVisible ? "Hide password" : "Show password"}
+                  >
+                    {isPasswordVisible ? (
+                      <EyeSlashIcon className="w-5 h-5 text-gray-400" />
+                    ) : (
+                      <EyeIcon className="w-5 h-5 text-gray-400" />
+                    )}
+                  </button>
               </div>
               {error && <p className="text-red-400 text-sm mb-4 text-center">{error}</p>}
               <button type="submit" className="w-full bg-lime-400 text-black font-bold py-3 px-5 rounded-lg text-lg hover:bg-lime-300 transition-transform hover:scale-105 shadow-lg shadow-lime-500/30">

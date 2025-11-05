@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { UserData } from '../App';
-
-type UserStatus = 'active' | 'banned' | 'suspended';
+import { UserData, UserStatus } from '../App';
 
 const AdminPanelPage: React.FC = () => {
     const [allUsers, setAllUsers] = useState<UserData[]>([]);
@@ -57,8 +55,10 @@ const AdminPanelPage: React.FC = () => {
         );
     }, [searchTerm, allUsers]);
 
-    const getStatusBadge = (status: UserStatus) => {
-        switch (status) {
+    // FIX: Handle potentially undefined status and default to 'active' for display purposes.
+    const getStatusBadge = (status: UserStatus | undefined) => {
+        const currentStatus = status || 'active';
+        switch (currentStatus) {
             case 'active':
                 return <span className="px-2 py-1 text-xs font-medium text-green-800 bg-green-200 rounded-full">Active</span>;
             case 'banned':
@@ -109,7 +109,8 @@ const AdminPanelPage: React.FC = () => {
                                             <td className="px-6 py-4 text-center">
                                                 {user.username.toLowerCase() !== 'c' ? (
                                                     <div className="flex justify-center items-center gap-2">
-                                                        {user.status === 'active' && (
+                                                        {/* FIX: Treat users with an undefined status as 'active' to show correct actions. */}
+                                                        {(user.status === 'active' || !user.status) && (
                                                             <>
                                                                 <button onClick={() => handleAction(user.username, 'suspend')} className="font-medium text-yellow-400 hover:underline text-xs">Suspend</button>
                                                                 <button onClick={() => handleAction(user.username, 'ban')} className="font-medium text-orange-500 hover:underline text-xs">Ban</button>

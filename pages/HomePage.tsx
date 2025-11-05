@@ -12,10 +12,10 @@ const Hero: React.FC<HomePageProps> = ({ onViewProducts }) => (
     
     <div className="relative z-10 container mx-auto px-6 py-20">
       <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold uppercase tracking-widest text-white">
-        The #1 Gaming <span className="text-lime-400">Utility Hub</span>
+        The #1 In-Game <span className="text-lime-400">Delivery Hub</span>
       </h1>
       <p className="mt-6 max-w-3xl mx-auto text-gray-300 text-base md:text-lg">
-        Welcome to ShamiraHub, the leading provider for gaming utilities. With over 100,000+ happy customers and 3+ years of experience, we guarantee satisfaction and security.
+        Welcome to ShamiraHub, the leading provider for in-game currency and items. With over 1000+ happy customers and 1+ year of experience, we guarantee satisfaction and security.
       </p>
       <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
         <button onClick={onViewProducts} className="w-full sm:w-auto bg-lime-400 text-black font-bold py-4 px-10 rounded-lg text-lg hover:bg-lime-300 transition-transform hover:scale-105 shadow-lg shadow-lime-500/30">
@@ -34,12 +34,12 @@ const features = [
   {
     icon: <ShieldCheckIcon className="w-10 h-10 text-lime-400" />,
     title: 'Safe & Secure',
-    description: 'Our top priority is your safety. All utilities are rigorously tested to ensure they are undetectable and secure.'
+    description: 'Our top priority is your safety. All deliveries are handled securely to protect your account and ensure a smooth transaction.'
   },
   {
     icon: <RocketLaunchIcon className="w-10 h-10 text-lime-400" />,
     title: 'Easy to Use',
-    description: 'Get up and running in minutes with our user-friendly launchers and straightforward setup guides.'
+    description: 'Get your items in minutes with our user-friendly ordering process and straightforward guides.'
   },
   {
     icon: <LifebuoyIcon className="w-10 h-10 text-lime-400" />,

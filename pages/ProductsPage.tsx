@@ -11,7 +11,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onCheckout }) => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white">Our <span className="text-lime-400">Products</span></h2>
-          <p className="text-gray-400 mt-3 max-w-2xl mx-auto">Browse our selection of premium gaming utilities.</p>
+          <p className="text-gray-400 mt-3 max-w-2xl mx-auto">Browse our selection of premium in-game currency and items.</p>
         </div>
         <div className="flex justify-center">
           <div className="w-full max-w-sm bg-gray-900/40 border border-gray-800 rounded-2xl p-8 text-center transition-all duration-300 ease-in-out hover:border-lime-400/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-lime-500/10">

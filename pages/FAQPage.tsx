@@ -2,12 +2,12 @@ import React from 'react';
 
 const faqs = [
   {
-    question: 'Is it safe to use ShamiraHub products?',
-    answer: 'Absolutely. We prioritize your account\'s safety above all else. All our products undergo rigorous testing to ensure they are secure and undetectable. We have a long-standing reputation for reliability with over 100,000 satisfied customers.'
+    question: 'Is it safe to use ShamiraHub services?',
+    answer: 'Absolutely. We prioritize your account\'s safety above all else. Our delivery methods are designed to be as secure as possible. We have a long-standing reputation for reliability with over 1000+ satisfied customers.'
   },
   {
-    question: 'How do I receive my product after purchase?',
-    answer: 'Delivery is instant. As soon as your payment is confirmed, you will receive immediate access to your purchased product. You can find your purchased items and keys in your profile or via the instructions sent to your registered email.'
+    question: 'How do I receive my in-game items after purchase?',
+    answer: 'Delivery is fast. As soon as your payment is confirmed, our team begins the delivery process. You will receive instructions on how to receive your items in-game. Delivery times may vary but are typically completed within minutes.'
   },
   {
     question: 'What payment methods do you accept?',
@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: 'Can I get a refund?',
-    answer: 'Due to the digital nature of our products, all sales are final and we generally do not offer refunds. However, if you experience technical issues that our support team cannot resolve, we may consider a refund on a case-by-case basis. Please see our Terms of Service for more details.'
+    answer: 'Due to the digital nature of our services and items, all sales are final and we generally do not offer refunds. However, if you experience technical issues that our support team cannot resolve, we may consider a refund on a case-by-case basis. Please see our Terms of Service for more details.'
   }
 ];
 

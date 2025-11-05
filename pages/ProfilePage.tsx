@@ -70,17 +70,6 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ currentUser, onNavigate }) =>
                     </div>
                 </div>
             </div>
-
-            {currentUser.toLowerCase() === 'c' && (
-                <div className="mt-10 text-center">
-                    <button
-                        onClick={() => onNavigate('admin')}
-                        className="bg-lime-500 text-black font-bold py-3 px-8 rounded-lg text-lg hover:bg-lime-400 transition-transform hover:scale-105 shadow-lg shadow-lime-500/30"
-                    >
-                        Access Admin Panel
-                    </button>
-                </div>
-            )}
         </div>
       </div>
     </section>
