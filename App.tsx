@@ -8,6 +8,7 @@ import ProfilePage from './pages/ProfilePage';
 import TOSPage from './pages/TOSPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import FAQPage from './pages/FAQPage';
+import StaffPage from './pages/StaffPage'; // Import the new StaffPage component
 import { UserCircleIcon, ArrowRightOnRectangleIcon, ChevronDownIcon } from './components/Icons';
 
 // FIX: Export UserStatus type to be used in UserData and AdminPanelPage.
@@ -49,13 +50,14 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentUser, onLogout }) =>
     <header className="bg-black/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-800/50">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('home'); }} className="flex items-center gap-2 text-2xl font-bold text-lime-400 hover:text-lime-300 transition-colors">
-          <span className="text-3xl font-extrabold text-green-600">SH</span>
-          <span>ShamiraHub</span>
+          <span className="text-3xl font-extrabold text-lime-400 drop-shadow-[0_0_8px_rgba(163,230,53,0.7)]">SH</span>
+          <span className="drop-shadow-[0_0_8px_rgba(163,230,53,0.7)]">ShamiraHub</span>
         </a>
         <div className="hidden md:flex items-center space-x-8">
           <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('home'); }} className="text-gray-300 hover:text-lime-400 transition-colors font-medium">Home</a>
           <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('products'); }} className="text-gray-300 hover:text-lime-400 transition-colors font-medium">Products</a>
           <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('faq'); }} className="text-gray-300 hover:text-lime-400 transition-colors font-medium">FAQ</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('staff'); }} className="text-gray-300 hover:text-lime-400 transition-colors font-medium">Staff</a>
           <a href="https://discord.gg/shamirahub" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-lime-400 transition-colors font-medium">Discord</a>
         </div>
         {currentUser ? (
@@ -201,6 +203,8 @@ const App: React.FC = () => {
         return <PrivacyPolicyPage />;
       case 'faq':
         return <FAQPage />;
+      case 'staff':
+        return <StaffPage />;
       case 'home':
       default:
         return <HomePage onViewProducts={() => navigateTo('products')} />;

@@ -112,3 +112,15 @@ export const EyeSlashIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => 
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.243 4.243L6.228 6.228" />
     </svg>
 );
+
+export const UserGroupIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.742-.584M18 18.72a9.094 9.094 0 0 1-3.742-.584m-10.522 0A9.094 9.094 0 0 0 6 18.72m-3.742 0a9.094 9.094 0 0 1 3.742-.584M18 18.72v-5.25m0 5.25a9.094 9.094 0 0 1-18 0m18 0a9.094 9.094 0 0 0-18 0m18 0h-5.25m5.25 0h-5.25m0 0v-5.25m0 5.25v-5.25m0 0h-5.25m5.25 0h-5.25M6 18.72v-5.25m0 5.25a9.094 9.094 0 0 1-1.873-1.873m-1.873 1.873a9.094 9.094 0 0 1-1.873-1.873M6 18.72h-5.25m5.25 0h-5.25m0 0v-5.25m0 5.25v-5.25m0 0h-5.25m5.25 0h-5.25m-3.75 5.25v-5.25m0 5.25a9.094 9.094 0 0 1-1.873-1.873m-1.873 1.873a9.094 9.094 0 0 1-1.873-1.873m-1.873 1.873h-5.25m5.25 0h-5.25m0 0v-5.25m0 5.25v-5.25M9 13.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-6 0h-5.25m5.25 0h-5.25m0 0v-5.25m0 5.25v-5.25m12 5.25a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-6 0h-5.25m5.25 0h-5.25m0 0v-5.25m0 5.25v-5.25m7.5-3.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-6 0h-5.25m5.25 0h-5.25m0 0v-5.25m0 5.25v-5.25" />
+    </svg>
+);
+
+export const PaperAirplaneIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+    </svg>
+);
