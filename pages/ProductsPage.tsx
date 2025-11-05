@@ -20,7 +20,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onCheckout }) => {
             </div>
             <h3 className="text-2xl font-semibold mb-3 text-white">Robux</h3>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">Get your in-game currency safely and instantly. Available for all platforms.</p>
-            <div className="text-3xl font-bold text-lime-400 mb-6">$9.99</div>
+            <div className="text-3xl font-bold text-lime-400 mb-6">$5.49</div>
             <button
               onClick={() => onCheckout('Robux')}
               className="w-full bg-lime-400 text-black font-bold py-3 px-8 rounded-lg text-lg hover:bg-lime-300 transition-transform hover:scale-105 shadow-lg shadow-lime-500/30"
