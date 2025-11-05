@@ -15,13 +15,15 @@ const SignInPage: React.FC<SignInPageProps> = ({ onLoginSuccess, onNavigate }) =
     e.preventDefault();
     setError('');
 
-    if (!username || !password) {
+    const trimmedUsername = username.trim();
+
+    if (!trimmedUsername || !password) {
       setError('Username and password are required.');
       return;
     }
 
     const users = JSON.parse(localStorage.getItem('shamiraHubUsers') || '{}');
-    const user = users[username.toLowerCase()];
+    const user = users[trimmedUsername.toLowerCase()];
 
     if (user && user.password === password) {
       onLoginSuccess(user.username);

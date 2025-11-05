@@ -16,13 +16,15 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ onSignUpSuccess, onNavigate }) 
     e.preventDefault();
     setError('');
 
-    if (!username || !password || !confirmPassword) {
+    const trimmedUsername = username.trim();
+
+    if (!trimmedUsername || !password || !confirmPassword) {
       setError('All fields are required.');
       return;
     }
     
     const usernameRegex = /^[a-zA-Z0-9._]+$/;
-    if (!usernameRegex.test(username)) {
+    if (!usernameRegex.test(trimmedUsername)) {
       setError('Username can only contain letters, numbers, periods, and underscores.');
       return;
     }
@@ -38,21 +40,22 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ onSignUpSuccess, onNavigate }) 
     }
     
     const users = JSON.parse(localStorage.getItem('shamiraHubUsers') || '{}');
-    if (users[username.toLowerCase()]) {
+    const normalizedUsername = trimmedUsername.toLowerCase();
+    if (users[normalizedUsername]) {
       setError('This username is already taken. Please choose another one.');
       return;
     }
 
     // In a real app, you would hash the password before storing it.
-    users[username.toLowerCase()] = { 
-      username: username,
+    users[normalizedUsername] = { 
+      username: trimmedUsername,
       password: password,
       createdAt: new Date().toISOString()
     };
     localStorage.setItem('shamiraHubUsers', JSON.stringify(users));
 
     alert('Sign up successful! Welcome to ShamiraHub.');
-    onSignUpSuccess(username);
+    onSignUpSuccess(trimmedUsername);
   };
 
   return (
